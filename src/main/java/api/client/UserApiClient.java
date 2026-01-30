@@ -5,7 +5,7 @@ import api.dto.auth.LoginRequestDto;
 import io.qameta.allure.Step;
 
 import static api.specs.CinescopeSpecs.authRequestSpec;
-import static api.specs.CinescopeSpecs.responseSpecOk;
+import static api.specs.CinescopeSpecs.responseSpecCreatedOk;
 import static io.restassured.RestAssured.given;
 
 public class UserApiClient {
@@ -18,7 +18,7 @@ public class UserApiClient {
                 .when()
                 .post("/login")
                 .then()
-                .spec(responseSpecOk())
+                .spec(responseSpecCreatedOk())
                 .extract()
                 .as(AuthResponseDto.class);
     }
